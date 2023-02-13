@@ -1,9 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 
 const galleryEl = document.querySelector('.gallery');
-const imagesListItems = creatListImages(galleryItems);
 
 galleryEl.addEventListener('click', onClickImages);
+
+const imagesListItems = creatListImages(galleryItems);
 
 function creatListImages(galleryItems) {
         return galleryItems.map(({preview, original, description}) => {
@@ -19,12 +20,12 @@ function creatListImages(galleryItems) {
         </div>
         `
     }).join('');
-    }
-
+    };
 galleryEl.insertAdjacentHTML('afterbegin', imagesListItems);
 
 function onClickImages(event) {
     event.preventDefault();
+
     const isImageEl = event.target.classList.contains('gallery__image');
     if (!isImageEl) {
         return;
